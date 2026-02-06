@@ -1,6 +1,4 @@
 streamlit
+gradio
 opencv-python-headless
-numpy
 requests
-python-dotenv
-yt-dlp
