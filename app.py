@@ -1,9 +1,17 @@
-import streamlit as st
+import gradio as gr
+import cv2
 
-st.set_page_config(page_title="Sentinel Strategic Hub", layout="wide")
+def monitor_stream():
+    # Your detection logic goes here
+    return "Sentinel Active: Monitoring Gaza Skyline..."
 
-st.title("🛰️ Sentinel Hub: Gaza Skyline Monitor")
-st.write("The AI is currently monitoring the live feed for thermal anomalies.")
+with gr.Blocks(theme=gr.themes.Soft()) as demo:
+    gr.Markdown("# 🛰️ Sentinel Strategic Hub")
+    with gr.Row():
+        video_feed = gr.Image(label="Live AI Analytics")
+        log_output = gr.Textbox(label="Detection Logs")
+    
+    start_btn = gr.Button("Launch Mission", variant="primary")
+    start_btn.click(fn=monitor_stream, outputs=log_output)
 
-# This simple text will prove the app is working!
-st.sidebar.success("Sentinel System: ONLINE")
+demo.launch()
